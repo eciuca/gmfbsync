@@ -17,6 +17,6 @@ oAuthAppId: 1437113922976752
 oAuthAppSecret: 4168c31e8c95ff1ce15c6bea6c58da57
 #oAuthAccessToken:
 
-clientId: 92348623251-cl1suo8jq6cia0r3ojigo6letg1b37iv.apps.googleusercontent.com
-clientSecret: O8wZSB6wcL9BJxO9_-LJTH2f
+clientId: "92348623251-sgdg7ascr5qv1suinap2v5sjrt43dfo6.apps.googleusercontent.com"
+clientSecret: "M7LCqKatcgpd0dsD6EqeRPvS"
 #refreshToken:

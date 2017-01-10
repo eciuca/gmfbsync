@@ -8,6 +8,12 @@ import org.hibernate.validator.constraints.NotEmpty;
 public class GmFbSyncConfiguration extends Configuration {
 
     @NotEmpty
+    private String clientId;
+
+    @NotEmpty
+    private String clientSecret;
+
+    @NotEmpty
     private String defaultName;
 
     @NotEmpty
@@ -16,17 +22,28 @@ public class GmFbSyncConfiguration extends Configuration {
     @NotEmpty
     private String oAuthAppSecret;
 
-    @NotEmpty
-    private String clientId;
-
-    @NotEmpty
-    private String clientSecret;
-
 //    @NotEmpty
 //    private String refreshToken;
 
 //    @NotEmpty
 //    private String oAuthAccessToken;
+
+
+    public String getClientId() {
+        return clientId;
+    }
+
+    public void setClientId(String clientId) {
+        this.clientId = clientId;
+    }
+
+    public String getClientSecret() {
+        return clientSecret;
+    }
+
+    public void setClientSecret(String clientSecret) {
+        this.clientSecret = clientSecret;
+    }
 
     public String getDefaultName() {
         return defaultName;
@@ -34,6 +51,22 @@ public class GmFbSyncConfiguration extends Configuration {
 
     public void setDefaultName(String defaultName) {
         this.defaultName = defaultName;
+    }
+
+    public String getoAuthAppId() {
+        return oAuthAppId;
+    }
+
+    public void setoAuthAppId(String oAuthAppId) {
+        this.oAuthAppId = oAuthAppId;
+    }
+
+    public String getoAuthAppSecret() {
+        return oAuthAppSecret;
+    }
+
+    public void setoAuthAppSecret(String oAuthAppSecret) {
+        this.oAuthAppSecret = oAuthAppSecret;
     }
 
     public FacebookConfiguration getFacebookConfiguration() {
@@ -51,6 +84,9 @@ public class GmFbSyncConfiguration extends Configuration {
 
         gmailConfig.setClientId(clientId);
         gmailConfig.setClientSecret(clientSecret);
+        gmailConfig.setAccessToken("ya29.Ci_PA0xfy2TBciVxYQg80j3eQyGsZKyg66yY3ex7aJp_YUYAgAueg6ehO2Nab8jmug");
+        gmailConfig.setRefreshToken("1/my3pPUQJCDXIPY8vwvBTQ8sjfCuZ719ZMZEE6hS4-qM");
+//        gmailConfig.setAccessToken();
 //        gmailConfig.setRefreshToken(refreshToken);
         return gmailConfig;
     }
