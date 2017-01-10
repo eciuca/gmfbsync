@@ -1,0 +1,129 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <parent>
+        <groupId>com.github.eciuca</groupId>
+        <artifactId>parent</artifactId>
+        <version>0.0.1</version>
+    </parent>
+
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>dropwizard-seed</artifactId>
+    <version>1.15-SNAPSHOT</version>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <dropwizard-seed.capsule.env>local</dropwizard-seed.capsule.env>
+        <docker-maven-plugin.pushImage>true</docker-maven-plugin.pushImage>
+        <docker-maven-plugin.forceTags>true</docker-maven-plugin.forceTags>
+        <docker-maven-plugin.version>0.4.10</docker-maven-plugin.version>
+        <junit.version>4.12</junit.version>
+        <microservice-bundle.version>0.1-12</microservice-bundle.version>
+        <rest-assured.version>2.7.0</rest-assured.version>
+        <slf4j-simple.version>1.7.12</slf4j-simple.version>
+        <dropwizard-gelf.version>0.9.2-5</dropwizard-gelf.version>
+        <camel.version>2.17.1</camel.version>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>be.fluid-it.microservice.bundle</groupId>
+            <artifactId>microservice-bundle-core</artifactId>
+            <version>${microservice-bundle.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.camel</groupId>
+            <artifactId>camel-facebook</artifactId>
+            <version>${camel.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.camel</groupId>
+            <artifactId>camel-google-mail</artifactId>
+            <version>${camel.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-simple</artifactId>
+            <version>${slf4j-simple.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>net.gini.dropwizard</groupId>
+            <artifactId>dropwizard-gelf</artifactId>
+            <version>${dropwizard-gelf.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>${junit.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.jayway.restassured</groupId>
+            <artifactId>rest-assured</artifactId>
+            <version>${rest-assured.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>be.fluid-it.microservice.bundle</groupId>
+            <artifactId>microservice-bundle-testing</artifactId>
+            <version>${microservice-bundle.version}</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>com.github.chrischristo</groupId>
+                <artifactId>capsule-maven-plugin</artifactId>
+                <configuration>
+                    <appClass>com.github.eciuca.dropwizard.helloworld.app.HelloWorldService</appClass>
+                    <types>fat</types>
+                    <manifest>
+                        <entry>
+                            <key>Allow-Snapshots</key>
+                            <value>true</value>
+                        </entry>
+                    </manifest>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>com.spotify</groupId>
+                <artifactId>docker-maven-plugin</artifactId>
+                <version>${docker-maven-plugin.version}</version>
+                <configuration>
+                    <serverId>${docker-server-id}</serverId>
+                    <registryUrl>${nexus-url}/repository/docker-public/</registryUrl>
+                    <imageName>${docker-registry}/${project.groupId}/${project.artifactId}-${dropwizard-seed.capsule.env}</imageName>
+                    <baseImage>java</baseImage>
+                    <entryPoint>["java", "-jar", "/${project.artifactId}_home/${project.build.finalName}-capsule.jar"]</entryPoint>
+                    <pushImage>${docker-maven-plugin.pushImage}</pushImage>
+                    <forceTags>${docker-maven-plugin.forceTags}</forceTags>
+                    <imageTags>
+                        <imageTag>${project.version}</imageTag>
+                        <imageTag>latest</imageTag>
+                    </imageTags>
+                    <!-- copy the service's jar file from target into the root directory of the image -->
+                    <resources>
+                        <resource>
+                            <targetPath>/${project.artifactId}_home</targetPath>
+                            <directory>${project.build.directory}</directory>
+                            <include>${project.build.finalName}-capsule.jar</include>
+                        </resource>
+                    </resources>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+    <!--<scm>
+        <url>scm:git:git@github.com:eciuca/dropwizard-seed.git</url>
+        <connection>scm:git:git@github.com:eciuca/dropwizard-seed.git</connection>
+        <developerConnection>scm:git:git@github.com:eciuca/dropwizard-seed.git</developerConnection>
+        <tag>HEAD</tag>
+    </scm>-->
+
+</project>

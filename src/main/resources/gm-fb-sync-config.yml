@@ -1,0 +1,22 @@
+server:
+  applicationConnectors:
+    - type: http
+      port: 8888
+  adminConnectors:
+    - type: http
+      port: 8889
+
+logging:
+  level: INFO
+  appenders:
+    - type: console
+      timeZone: CEST
+
+defaultName: "Yahoo Facebook Synchronization Service"
+oAuthAppId: 1437113922976752
+oAuthAppSecret: 4168c31e8c95ff1ce15c6bea6c58da57
+#oAuthAccessToken:
+
+clientId: 92348623251-cl1suo8jq6cia0r3ojigo6letg1b37iv.apps.googleusercontent.com
+clientSecret: O8wZSB6wcL9BJxO9_-LJTH2f
+#refreshToken:
