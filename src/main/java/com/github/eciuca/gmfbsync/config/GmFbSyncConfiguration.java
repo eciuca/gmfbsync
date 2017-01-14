@@ -84,10 +84,8 @@ public class GmFbSyncConfiguration extends Configuration {
 
         gmailConfig.setClientId(clientId);
         gmailConfig.setClientSecret(clientSecret);
-        gmailConfig.setAccessToken("ya29.Ci_PA0xfy2TBciVxYQg80j3eQyGsZKyg66yY3ex7aJp_YUYAgAueg6ehO2Nab8jmug");
-        gmailConfig.setRefreshToken("1/my3pPUQJCDXIPY8vwvBTQ8sjfCuZ719ZMZEE6hS4-qM");
-//        gmailConfig.setAccessToken();
-//        gmailConfig.setRefreshToken(refreshToken);
+        gmailConfig.setAccessToken("ya29.Ci_TA8vJAUOg7o5yp7sGLHuiSmDacKIDSvuuY5p_hcGxqRVDb9fZHrlhd1ONeKff0w");
+        gmailConfig.setRefreshToken("1/bl3GS0KA6KncLLFDLJ1DmNxmhDPkUNEjJzdBBTQcbp8");
         return gmailConfig;
     }
 }

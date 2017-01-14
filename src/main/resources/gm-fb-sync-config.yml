@@ -12,11 +12,11 @@ logging:
     - type: console
       timeZone: CEST
 
-defaultName: "Yahoo Facebook Synchronization Service"
+defaultName: "Gmail Facebook Synchronization Service"
 oAuthAppId: 1437113922976752
 oAuthAppSecret: 4168c31e8c95ff1ce15c6bea6c58da57
 #oAuthAccessToken:
 
 clientId: "92348623251-sgdg7ascr5qv1suinap2v5sjrt43dfo6.apps.googleusercontent.com"
 clientSecret: "M7LCqKatcgpd0dsD6EqeRPvS"
-#refreshToken:
+#refreshToken: 1/ROZ-WUM3gR1BMF1K_pvc7rgbdA_tBF_ET6bb_wnPiiw
