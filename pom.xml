@@ -26,6 +26,7 @@
         <dropwizard-gelf.version>0.9.2-5</dropwizard-gelf.version>
         <camel.version>2.18.1</camel.version>
 
+        <mapdb.version>3.0.3</mapdb.version>
     </properties>
 
     <dependencies>
@@ -74,6 +75,12 @@
             <groupId>org.apache.camel</groupId>
             <artifactId>camel-quartz2</artifactId>
             <version>${camel.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.mapdb</groupId>
+            <artifactId>mapdb</artifactId>
+            <version>${mapdb.version}</version>
         </dependency>
 
         <dependency>

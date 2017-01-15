@@ -74,7 +74,10 @@ public class GmFbSyncConfiguration extends Configuration {
 
         fbConfig.setOAuthAppId(oAuthAppId);
         fbConfig.setOAuthAppSecret(oAuthAppSecret);
-//        fbConfig.setOAuthAccessToken(oAuthAppId);
+        //graph api
+//        fbConfig.setOAuthAccessToken("EAACEdEose0cBAB65QsZByi9BNmR48BhkVhx8GFzRlj7K2nKvhWdCjW3Gj31ENtoFS5eTVW9uRfCqamq8PifjoM1PUnl9Y3WYG5eioFxjt0C2ZBxpbtZCTjHnTpmYDUJOR9qCYbUYxlvTALt5gHZBAta47uiN07yjjbM5F3ssWOZADDFJ9ZC7048ZAZClLDsNVtAZD");
+        //the service
+        fbConfig.setOAuthAccessToken("EAAUbDCjheZCABAANZCoP4uJHcETjOveptAvjo5Lgpr1AcBtHfrG4u26VCRl16F3NCHNOorbTvu2oXMvC16dStGuU4IZBi4LHsDJZAPt93nqPevnuXEJ1ZAxW8LichAj2jNZBhPSi1QRPX8AQkSVYaRbbkOpNBGYVQmWiHW8tZCo3dZAOR8ghlaAlFZAhnJSR6Y8IZD");
 
         return fbConfig;
     }
@@ -84,8 +87,8 @@ public class GmFbSyncConfiguration extends Configuration {
 
         gmailConfig.setClientId(clientId);
         gmailConfig.setClientSecret(clientSecret);
-        gmailConfig.setAccessToken("ya29.Ci_TA8vJAUOg7o5yp7sGLHuiSmDacKIDSvuuY5p_hcGxqRVDb9fZHrlhd1ONeKff0w");
-        gmailConfig.setRefreshToken("1/bl3GS0KA6KncLLFDLJ1DmNxmhDPkUNEjJzdBBTQcbp8");
+        gmailConfig.setAccessToken("ya29.Ci_UA7nuqPTwhdQxsAPGaRqfLvhiXSqW5id75beA9aLHAK6KXy8lR-XLHuqbwc48YQ");
+        gmailConfig.setRefreshToken("1/290p_ErDmRE-AtcDV3DicfVa0nxXDC6k-D5BRGkEmyc");
         return gmailConfig;
     }
 }

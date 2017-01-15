@@ -7,7 +7,10 @@ import com.github.eciuca.gmfbsync.HelloWorldResource;
 import com.github.eciuca.gmfbsync.config.GmFbSyncConfiguration;
 import com.github.eciuca.gmfbsync.module.GmFbSyncModule;
 import com.github.eciuca.gmfbsync.routes.GmailToFacebookRouteBuilder;
+import org.apache.camel.component.facebook.FacebookComponent;
 import org.apache.camel.component.google.mail.GoogleMailComponent;
+import org.mapdb.DB;
+import org.mapdb.DBMaker;
 
 public class GmFbSyncService extends µService<GmFbSyncConfiguration> {
     static {
@@ -24,7 +27,10 @@ public class GmFbSyncService extends µService<GmFbSyncConfiguration> {
 
         GoogleMailComponent googleMailComponent = (GoogleMailComponent) µsEnvironment.camel().getComponent("google-mail");
         googleMailComponent.setConfiguration(configuration.getGoogleMailConfiguration());
+        FacebookComponent facebookComponent = (FacebookComponent) µsEnvironment.camel().getComponent("facebook");
+        facebookComponent.setConfiguration(configuration.getFacebookConfiguration());
 //        googleMailComponent.setClientFactory(ModifiedBatchGoogleMailClientFactory.proxiedBatchGoogleMailClientFactory());
+
 
         µsEnvironment.camel().start();
     }
