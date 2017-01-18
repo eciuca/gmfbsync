@@ -15,7 +15,6 @@ public class FacebookPostExpression implements Expression {
     @Override
     public <T> T evaluate(Exchange exchange, Class<T> aClass) {
         Map<String, String> mailData = exchange.getIn().getBody(Map.class);
-        exchange.getIn().setHeader(CONVERSATION_ID, mailData.get(CONVERSATION_ID));
 
         PostUpdate postUpdate = createPostUpdateWithMessage(mailData);
         postUpdate.setName(mailData.get(SUBJECT));
@@ -23,13 +22,15 @@ public class FacebookPostExpression implements Expression {
         postUpdate.setCaption("Mesaj postat pe grupul de Yahoo");
         postUpdate.setLink(createURL("https://groups.yahoo.com/neo/groups/harmonyresidence/conversations/messages/" + mailData.get(YAHOO_MESSAGE_ID)));
 
+//        exchange.get
         return (T) postUpdate;
     }
 
     private PostUpdate createPostUpdateWithMessage(Map<String, String> mailData) {
         StringBuilder postMessage = new StringBuilder();
-        postMessage.append(mailData.get(MESSAGE_TEXT)).append("\n.\n.\n.\n");
-        postMessage.append("").append(mailData.get(CONVERSATION_ID));
+        postMessage.append(mailData.get(MESSAGE_TEXT)).append("\n\n\n\n");
+        postMessage.append("Mesaj postat de ").append(mailData.get(FROM));
+//        postMessage.append("").append(mailData.get(CONVERSATION_ID));
 
         return new PostUpdate(postMessage.toString());
     }

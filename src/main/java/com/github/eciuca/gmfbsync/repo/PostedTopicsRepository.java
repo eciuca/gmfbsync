@@ -12,7 +12,7 @@ import java.util.concurrent.ConcurrentMap;
 public class PostedTopicsRepository {
 
     private final DB database;
-    private ConcurrentMap postedTopicsMap;
+    private HTreeMap<String, String> postedTopicsMap;
 
     @Inject
     public PostedTopicsRepository(DB database) {
@@ -34,9 +34,13 @@ public class PostedTopicsRepository {
         });
     }
 
+    public boolean exists(String topicHash) {
+        return postedTopics().containsKey(topicHash);
+    }
+
     private ConcurrentMap postedTopics() {
         if (postedTopicsMap == null) {
-            postedTopicsMap = database.hashMap("postedTopics").createOrOpen();
+            postedTopicsMap = (HTreeMap<String, String>) database.hashMap("postedTopics").createOrOpen();
         }
 
         return postedTopicsMap;
