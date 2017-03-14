@@ -3,6 +3,7 @@ package com.github.eciuca.gmfbsync.config;
 import io.dropwizard.Configuration;
 import org.apache.camel.component.facebook.config.FacebookConfiguration;
 import org.apache.camel.component.google.mail.GoogleMailConfiguration;
+import org.apache.camel.component.google.mail.internal.GoogleMailApiName;
 import org.hibernate.validator.constraints.NotEmpty;
 
 public class GmFbSyncConfiguration extends Configuration {
@@ -77,7 +78,7 @@ public class GmFbSyncConfiguration extends Configuration {
         //graph api
 //        fbConfig.setOAuthAccessToken("EAACEdEose0cBAB65QsZByi9BNmR48BhkVhx8GFzRlj7K2nKvhWdCjW3Gj31ENtoFS5eTVW9uRfCqamq8PifjoM1PUnl9Y3WYG5eioFxjt0C2ZBxpbtZCTjHnTpmYDUJOR9qCYbUYxlvTALt5gHZBAta47uiN07yjjbM5F3ssWOZADDFJ9ZC7048ZAZClLDsNVtAZD");
         //the service
-        fbConfig.setOAuthAccessToken("EAAUbDCjheZCABAP15LwNY41GcEPSBiGjO9H51523fnZBr9R5CTUFL5JftWvytoFwSUjOW9SMLF5Ndm7VqUQJvs04e1X2iHobkHJ3ZC1Aa2IWUFBe1OElZAb5jxwDT13Mg2wMiNzfioVZAYLKbV6qw3y9LsuEnTQvvsdUR2DSnkTHc3L1C2bBRRDZA4dr9jsa8ZD");
+        fbConfig.setOAuthAccessToken("EAACEdEose0cBAO7RfD0cMqAJMmqV2dtRPz8QrhyvDzaA7U7LmlUL4Hqt6dhu9fSZBXc8TyHwKuRlaegeNuhbZBh5TvNTcZBTZAnYcrRn6z5W6iqo5T7PyRixDOsRaHIfDEqzHbYT9WLAbW3S8ZAEcOKIj78gPrHAEo0QG1rAFJJbeZA8t3THKyuN0ZC1FORkUq9RgqZBx0gb7AZDZD");
 
         return fbConfig;
     }
@@ -87,8 +88,9 @@ public class GmFbSyncConfiguration extends Configuration {
 
         gmailConfig.setClientId(clientId);
         gmailConfig.setClientSecret(clientSecret);
-        gmailConfig.setAccessToken("ya29.GlvXA36JrpVDkSLm0zBYGRoSKrLajzBSZgm6UBHldgUHDGO3gM1H33H9hwtHMHSjRR4a_XHedzfxLx2ydknPXKSNKVuwcy4PjeBoc3Uz447xw5RfVeCjn3vZymiL");
-        gmailConfig.setRefreshToken("1/X7wr7ER2fXbo1NTu0xbb2xZ85r49aAhy2a3rkAyxO2H-VwQgXdOoynfIZ84o85U_");
+        gmailConfig.setApiName(GoogleMailApiName.MESSAGES);
+        gmailConfig.setAccessToken("ya29.GlsOBH6we0_C6FFjZenc7R6tZG_-PGdtbGfKRE-XFAqTNxdnsn6gl-G1NEXrXsgkbuLlCCGXEXgQd6PzuDZsvgNQKBjc9-xRQjgd9trh8bYk7cQVEkKeRgB7yoar");
+        gmailConfig.setRefreshToken("1/jsomNdu4RbBQlmDhXeHCr8dgQ70dwbSqrQFW_FFISRQv-k7aOumZ3TKVCh6IYasZ");
         return gmailConfig;
     }
 }
